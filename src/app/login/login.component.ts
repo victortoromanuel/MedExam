@@ -47,7 +47,9 @@ export class LoginComponent implements OnInit {
       data => {
         console.log(data);
         if (data['Login'] == "True"){
-          this.router.navigate(['/dashboard']);
+          //this.router.navigate(['/formulario', idExamen]);
+          //this.router.navigate(['/dashboard']);
+          this.router.navigate(['/dashboard', data['ID']]);
         }
         else{
           this.router.navigate(['/login']);

@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { RecpswComponent } from './recpsw/recpsw.component';
 import { SignupComponent } from './signup/signup.component';
 
@@ -42,6 +43,10 @@ export const AppRoutes: Routes = [
   {
     path: 'formulario/:id',
     component: FormularioComponent,
+  },
+  {
+    path: 'dashboard/:id',
+    component: DashboardComponent,
   },
   {
     path: '',
