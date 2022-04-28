@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-md-2">
+        <div id="time">
+            <h3 id="timer">15:00</h3>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <form class="form-body" [formGroup]="answerForm">
+            <ng-container *ngFor="let pregunta of preguntas | paginate:page_size:page_number">
+                <ng-container *ngFor="let p of pregunta | keyvalue"> 
+                    <div class="card">
+                        <div class="pregresp">
+                        <div class="pregunta">{{ p.value.Pregunta }}<br /></div>
+                            <div class="respuestas" formGroupName="answersData">
+                                <hr>
+                                <input type="radio" name="answer" value="A.{{ p.value.IdPregunta }}.{{ p.value.RespuestaCorrecta }}" formControlName="answer"/> {{ p.value.OpcionA }}<br />
+                                <input type="radio" name="answer" value="B.{{ p.value.IdPregunta }}.{{ p.value.RespuestaCorrecta }}" formControlName="answer"/> {{ p.value.OpcionB }}<br />
+                                <input type="radio" name="answer" value="C.{{ p.value.IdPregunta }}.{{ p.value.RespuestaCorrecta }}" formControlName="answer"/> {{ p.value.OpcionC }}<br />
+                                <input type="radio" name="answer" value="D.{{ p.value.IdPregunta }}.{{ p.value.RespuestaCorrecta }}" formControlName="answer"/> {{ p.value.OpcionD }}<br />
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
+            <mat-paginator [length]="preguntas.length"
+                [pageSize]="page_size"
+                [pageSizeOptions]="pageSizeOptions"
+                [hidePageSize]="true"
+                (page)="handlePage($event)"
+                aria-label="Select page" 
+                (click)="respondida()" showFirstLastButtons>
+            </mat-paginator>
+            <div style="display: flex; align-items: center; justify-content: center">
+                <a class="btn btn-primary" role="button" aria-disabled="true" (click)="terminar()">Terminar</a>
+            </div>
+        </form>
+    </div>
+
+    
+
+    <div class="col-md-2">
+    </div>
+</div>

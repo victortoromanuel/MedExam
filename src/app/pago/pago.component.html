@@ -1,0 +1,149 @@
+<div *ngIf="popup_activated == true" class="window-notice" id="window-notice">
+    <div class="contenido">
+        <div class="contenido-text">
+          <h5 style="display: flex; align-items: center; justify-content: center">¡Muchos éxitos!</h5>
+          <p>La prueba tendrá preguntas de selección múltiple la cual estará controlada por un temporizador, cada pregunta se mostrará indivualmente, una vez cambie de pregunta no podrá retroceder.</p>
+          <p>Cada pregunta está pensada para que sea respondida en 3 minutos, por favor lea cuidadosamente.</p>
+        </div>
+        <div class="contenido-buttons" style="display: flex; align-items: center; justify-content: center">
+          <a (click)="generarPreguntasPago()" routerLink="/formulario" class="btn btn-primary" role="button" aria-disabled="true">Empezar</a>
+      </div>
+    </div>
+  </div>
+
+<div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-6">
+        <div class="card card-user">
+        <div class="card-header">
+            <h5 class="card-title">Compra</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                <div class="form-group">
+                    <div class="horizontal-list">
+                        <label style="font-weight:bold; color: black;">Añadir método de pago</label>
+                        <img class="visa" src="../../assets/img/visa.png">
+                        <img class="mastercard" src="../../assets/img/mastercard.png">
+                    </div>
+                    <input type="radio" name="preg1" value="1" /> Tarjeta de crédito<br />
+                    <input type="radio" name="preg1" value="2" /> Tarjeta de débito <br />
+                </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                <div class="form-group">
+                    <label>Número de tarjeta de crédito o débito </label>
+                    <input type="email" class="form-control">
+                </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                <div class="form-group">
+                    <label>Mes de caducidad</label>
+                    <select class="form-control">
+                    <option>Enero</option>
+                    <option>Febrero</option>
+                    <option>Marzo</option>
+                    <option>Abril</option>
+                    <option>Mayo</option>
+                    <option>Junio</option>
+                    <option>Julio</option>
+                    <option>Agosto</option>
+                    <option>Septiembre</option>
+                    <option>Octubre</option>
+                    <option>Noviembre</option>
+                    <option>Diciembre</option>
+                   </select>
+                </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Año de caducidad</label>
+                        <select class="form-control">
+                        <option>2022</option>
+                        <option>2023</option>
+                        <option>2024</option>
+                        <option>2025</option>
+                        <option>2026</option>
+                        <option>2027</option>
+                        <option>2028</option>
+                        <option>2029</option>
+                        <option>2030</option>
+                        <option>2031</option>
+                        <option>2032</option>
+                        <option>2033</option>
+                        <option>2034</option>
+                        <option>2035</option>
+                        <option>2036</option>
+                        <option>2037</option>
+                        <option>2038</option>
+                        <option>2039</option>
+                        <option>2040</option>
+                        <option>2041</option>
+                       </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                <div class="form-group">
+                    <label>Código de seguridad</label>
+                    <input type="text" class="form-control" placeholder="***">
+                </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input type="text" class="form-control" placeholder="Ingrese su nombre">
+                </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Apellido</label>
+                        <input type="text" class="form-control" placeholder="Ingrese su apellido">
+                    </div>
+                    </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Tu pedido</h5>
+                </div>
+                <hr>
+                <div class="col-md-12">
+                    <p>Examen a pagar:</p>
+                    <div class="form-group">
+                        <select id="examen" class="form-control" style="border-color: #cacaca;">
+                        <option>Examen corto</option>
+                        <option>Examen largo</option>
+                        <option>Examen especializado</option>
+                    </select>
+                    </div>
+                    <br>
+                    <div class="horizontal-list" style="display: flex;">
+                        <p style="font-weight:bold; font-size: 16px; color: black;">TOTAL A PAGAR: </p>
+                        <p style="font-weight:bold; font-size: 16px; padding-left: 2%">$40.000</p>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="update ml-auto mr-auto">
+                        <button type="submit" class="btn btn-primary btn-round" (click)="enviar()">Comprar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="col-md-1">
+    </div>
+</div>

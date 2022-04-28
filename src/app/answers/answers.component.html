@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-8">
+        <h3 style="color: gray">Solución</h3>
+        <label style="color: gray; font-size: medium;">Tu puntaje es de 4/5 correctas.</label>
+        <div class="card">
+            <div class="pregresp">
+            <div class="pregunta">1. En pacientes con antecedente de anemia por células falciformes y síndrome torácico agudo, ¿qué tipo de líquidos endovenosos (LEV) y a qué volumen se recomiendan?<br /></div>
+                <div class="respuestas">
+                    <input type="radio" name="preg1" value="1" disabled/> Hartman; 2 veces el requerimiento por peso<br />
+                    <input type="radio" name="preg1" value="2" disabled/> SSN; 1 a 1.5 veces el requerimiento por peso <br />
+                    <input type="radio" name="preg1" value="3" disabled/> DAD 5 %; 2 veces el requerimiento por peso<br />
+                    <input type="radio" name="preg1" value="4" checked/> Soluciones hipotónicas 1 a 1.5 veces el requerimiento por peso<br />
+                </div>
+            <hr>
+            <p style="font-size: large;">Explicación:</p>
+            <p>Los LEV son para disminuir la viscosidad del plasma y se administran entre 1.0 y 1.5 veces la tasa de mantenimiento y se prefieren las soluciones hipotónicas porque crean un gradiente iónico que permite que el líquido se absorba mejor por los glóbulos rojos, no se recomiendan otras soluciones porque pueden precipitar el síndrome torácico agudo o empeorar el cuadro.
+            </p>
+            </div>
+
+            <div class="center">
+                <ul class="pagination">
+                  <li><a routerLink="/formulario">«</a></li>
+                  <li><a class="active" routerLink="/formulario">1</a></li>
+                  <li><a routerLink="/formulario">2</a></li>
+                  <li><a routerLink="/formulario">3</a></li>
+                  <li><a routerLink="/formulario">4</a></li>
+                  <li><a routerLink="/formulario">5</a></li>
+                  <li><a (click)="terminar()">»</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-2">
+    </div>
+</div>

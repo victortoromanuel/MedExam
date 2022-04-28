@@ -1,0 +1,36 @@
+<div *ngIf="popup_activated == true" class="window-notice" id="window-notice">
+  <div class="contenido">
+      <div class="contenido-text">
+        <h5 style="display: flex; align-items: center; justify-content: center">¡Muchos éxitos!</h5>
+        <p>La prueba tendrá preguntas de selección múltiple la cual estará controlada por un temporizador, cada pregunta se mostrará indivualmente, una vez cambie de pregunta no podrá retroceder.</p>
+        <p>Cada pregunta está pensada para que sea respondida en 3 minutos, por favor lea cuidadosamente.</p>
+      </div>
+      <div class="contenido-buttons" style="display: flex; align-items: center; justify-content: center">
+        <a (click)="generarPreguntas()" routerLink="/formulario"  class="btn btn-primary" role="button" aria-disabled="true">Empezar</a>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="card" (click)="gratis()">
+            <div class="image">
+                <img src="../../assets/img/examengratuito.png" alt="Avatar" style="width:100%">
+              </div>
+            <div class="container">
+              <h4><b>Examen Gratuito</b></h4>
+              <p>Bienvenido a nuestro examen gratuito. El examen tiene una duración de 15 minutos y consiste de 5 preguntas tipo examen para poder analizar el conocimiento general que usted posee.</p>
+              <p> Al finalizar el examen, se le mostrará la respuesta y explicación a cada punto que haya respondido.</p>
+            </div>
+
+            <div style="display: flex; align-items: center; justify-content: center">
+                <a (click)="enviar()" class="btn btn-primary" role="button" aria-disabled="true">Continuar</a>
+            </div>
+              
+          </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+

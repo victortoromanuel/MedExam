@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="card" (click)="gratis()">
+            <div class="image">
+                <img src="../../assets/img/especializacion.jpg" alt="Avatar" style="width:100%">
+              </div>
+            <div class="container">
+              <h4><b>Examen Especializado </b></h4>
+              <p>Bienvenido a nuestro examen pago. Cada examen de especialización tiene una duración de 120 minutos y consiste de 40 preguntas tipo examen para poder analizar el conocimiento general que usted posee sobre la área seleccionada. Al finalizar el examen, se le mostrará la respuesta y explicación a cada punto que haya respondido. </p>
+            </div>
+
+            <div action="#" id="esp">
+              <p for="lang" id="especializacion">Seleccione la especialización en la que desea enfocarse:</p> <br>
+              <select name="languages" id="lang">
+                <option>Salud Pública</option>
+                <option >Urgencias Médicas</option>
+                <option >Oftamología</option>
+                <option >Medicina Forense</option>
+                <option >Medicina Familiar</option>
+                <option >Medicina Interna</option>
+                <option >Cirugía Oncológica</option>
+              </select>
+            </div>
+            <br>
+            <div style="display: flex; align-items: center; justify-content: center">
+                <a routerLink = "/pago" class="btn btn-primary" role="button" aria-disabled="true">Pagar</a>
+            </div>
+              
+          </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>

@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <div class="topnav" id="myTopnav">
+        <a href="#" class="active">MedExam</a>
+        <a href="#signup" class="signup">Registro</a>
+        <a href="#login">Ingresar</a>
+        <a href="javascript:void(0);" class="icon" (click)="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <form class="form-body" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+            <h3 id="title">Crea una nueva contraseña</h3>
+            <p>Has ingresado exitosamente con tu contraseña temporal. Por favor cree una nueva contraseña permanente.</p>  
+            <div id="user-data" formGroupName="userData">
+            <div class="form-group">
+                <label for="new_psw">Contraseña</label>
+                <input type="text" id="new_psw" class="form-control" formControlName="new_psw">
+                <span *ngIf="!signupForm.get('userData.new_psw').valid && signupForm.get('userData.new_psw').touched" class="help-block">Por favor ingrese una contraseña válido</span>
+            </div>
+
+            </div>
+            
+            <a (click)="enviarPeticion(signupForm.valid, signupForm.touched)" class="btn btn-primary" role="button" aria-disabled="true" type="submit">Continuar</a>
+            <br>
+            <div>
+                <a href="#">Cancelar</a>
+            </div><br>
+        </form>
+    </div>
+</body>
+</html>
