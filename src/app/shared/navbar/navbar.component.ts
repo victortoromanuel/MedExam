@@ -53,6 +53,7 @@ export class NavbarComponent implements OnInit{
         }
       }
       sidebarOpen() {
+          
           const toggleButton = this.toggleButton;
           const html = document.getElementsByTagName('html')[0];
           const mainPanel =  <HTMLElement>document.getElementsByClassName('main-panel')[0];
@@ -69,11 +70,11 @@ export class NavbarComponent implements OnInit{
       sidebarClose() {
           const html = document.getElementsByTagName('html')[0];
           const mainPanel =  <HTMLElement>document.getElementsByClassName('main-panel')[0];
-          if (window.innerWidth < 991) {
+          /*if (window.innerWidth < 991) {
             setTimeout(function(){
               mainPanel.style.position = '';
             }, 500);
-          }
+          }*/
           this.toggleButton.classList.remove('toggled');
           this.sidebarVisible = false;
           html.classList.remove('nav-open');

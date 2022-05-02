@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { DashboardService } from './dashboard.service';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -9,7 +13,9 @@ import Chart from 'chart.js';
 })
 
 export class DashboardComponent implements OnInit{
-
+  private routeSub: Subscription;
+  constructor(private router : Router, private route: ActivatedRoute, private dashboardSvc: DashboardService) {}
+  
   public canvas : any;
   public ctx;
   public chartColor;
@@ -205,5 +211,11 @@ export class DashboardComponent implements OnInit{
         data: speedData,
         options: chartOptions
       });
+      this.routeSub = this.route.params.subscribe(params => {
+        console.log(params['id']) //log the value of id
+        this.dashboardSvc.setData(params['id']);
+      });
+      //var userId = this.route.snapshot.paramMap.get('id');
+      //this.dashboardSvc.setData(userId);
     }
 }

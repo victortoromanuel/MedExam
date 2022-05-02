@@ -24,7 +24,10 @@ export class FormularioComponent implements OnInit{
   ngOnInit(): void {
     console.log(this._route.snapshot.paramMap.get('id'));
     var examen;
-    if (this._route.snapshot.paramMap.get('id') == '1'){
+    if (this._route.snapshot.paramMap.get('id') == '0'){
+      examen = "Gratis";
+    }
+    else if (this._route.snapshot.paramMap.get('id') == '1'){
       examen = "Examen corto";
     }
     else if (this._route.snapshot.paramMap.get('id') == '2'){
@@ -85,7 +88,7 @@ export class FormularioComponent implements OnInit{
           console.log(data);
       });
     }
-    this.answerForm.reset();
+    //this.answerForm.reset();
   }
 
   handlePage(e: PageEvent){

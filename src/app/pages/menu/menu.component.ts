@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'icons-cmp',
@@ -9,18 +9,24 @@ import { Router } from '@angular/router';
 })
 
 export class MenuComponent{
-    constructor(private router : Router) {}
+    constructor(private router : Router, private route : ActivatedRoute) {}
 
     gratis(){
-        this.router.navigate(['/free']);
+        var userId = this.route.params.subscribe(params => {
+            this.router.navigate(['/free', params['id']]);
+        });
     }
 
     corto(){
-        this.router.navigate(['/corto']);
+        var userId = this.route.params.subscribe(params => {
+            this.router.navigate(['/corto', params['id']]);
+        });
     }
 
     largo(){
-        this.router.navigate(['/largo']);
+        var userId = this.route.params.subscribe(params => {
+            this.router.navigate(['/largo', params['id']]);
+        });
     }
 
     especializacion(){

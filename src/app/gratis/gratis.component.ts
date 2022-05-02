@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GratisService } from './gratis.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class GratisComponent implements OnInit {
   
   popup_activated : boolean = false;
   
-  constructor(private router : Router, private gratisSvc: GratisService) { }
+  constructor(private router : Router, private route : ActivatedRoute, private gratisSvc: GratisService) { }
 
   ngOnInit(): void {
   }
@@ -26,6 +26,9 @@ export class GratisComponent implements OnInit {
     this.gratisSvc.getPreguntas(tipoExamen).subscribe(
       data => {
         console.log(data);
+    });
+    var userId = this.route.params.subscribe(params => {
+      this.router.navigate(['/formulario', 0]);
     });
   }
   
