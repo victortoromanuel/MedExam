@@ -25,8 +25,12 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'corto/:id',          component: CortoComponent },
     { path: 'largo/:id',          component: LargoComponent },
     { path: 'pago',          component: PagoComponent },
+    { path: 'pago/:id',          component: PagoComponent },
     { path: 'answer',          component: AnswersComponent },
+    { path: 'answer/:id/:examenxusuario',          component: AnswersComponent },
     { path: 'formulario',          component: FormularioComponent },
     { path: 'formulario/:id',          component: FormularioComponent },
+    { path: 'formulario/:id/:examen',          component: FormularioComponent },
+    { path: 'formulario/:id/:examen/:examenxusuario',          component: FormularioComponent },
     { path: 'especializacion',          component: EspecializacionComponent },
 ];

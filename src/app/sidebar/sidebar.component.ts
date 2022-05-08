@@ -11,7 +11,7 @@ export interface RouteInfo {
 }
 
 export const ROUTES: RouteInfo[] = [
-    { path: '/menu',         title: 'Exámenes',             icon:'nc-book-bookmark',    class: '' },
+    { path: '/menu',          title: 'Exámenes',             icon:'nc-book-bookmark',    class: '' },
     { path: '/dashboard',     title: 'Dashboard',         icon:'nc-trophy',       class: '' },
     { path: '/table',         title: 'Lista de resultados',        icon:'nc-tile-56',    class: '',  },
     { path: '/user',          title: 'Perfil de Usuario',      icon:'nc-circle-10',  class: '',  },
@@ -25,13 +25,19 @@ export const ROUTES: RouteInfo[] = [
 
 export class SidebarComponent implements OnInit {
     public menuItems: any[];
-    constructor(private router : Router, private _route: ActivatedRoute, private dashboardSvc: DashboardService) { }
+    constructor(private router : Router, private route: ActivatedRoute, private dashboardSvc: DashboardService) { }
 
     ngOnInit() {
         this.menuItems = ROUTES.filter(menuItem => menuItem);
     }
 
     goToExamenes() {
+        /*console.log("Como la ves");
+        var userId = this.route.params.subscribe(params => {
+            console.log("holas");
+            console.log(params['id']);
+            this.router.navigate(['/menu', params['id']]);
+        });*/
         var userId = this.dashboardSvc.getData();
         this.router.navigate(['/menu', userId]);
     }

@@ -22,24 +22,42 @@ export class FormularioComponent implements OnInit{
   flag : boolean;
 
   ngOnInit(): void {
-    console.log(this._route.snapshot.paramMap.get('id'));
+    console.log(this._route.snapshot.paramMap.get('examen'));
+    var check = true;
     var examen;
-    if (this._route.snapshot.paramMap.get('id') == '0'){
-      examen = "Gratis";
+    if (this._route.snapshot.paramMap.get('examen') == 'gratis'){
+      examen = "Examen gratis";
     }
-    else if (this._route.snapshot.paramMap.get('id') == '1'){
+    if (this._route.snapshot.paramMap.get('examen') == 'corto'){
       examen = "Examen corto";
     }
-    else if (this._route.snapshot.paramMap.get('id') == '2'){
+    else if (this._route.snapshot.paramMap.get('examen') == 'largo'){
       examen = "Examen largo";
     }
-    var tipoExamen = {Nombre: examen};
-    this.formularioSvc.getPreguntas(tipoExamen).subscribe(
-      data => {
-        console.log(data);
-        this.preguntas = data['Preguntas'];
-        console.log(this.preguntas);
+    var tipoExamen = {Nombre: examen, IdUsuario: this._route.snapshot.paramMap.get('id'), getPregunta: true, IdExamenXUsuario: this._route.snapshot.paramMap.get('examenxusuario')};
+      this.formularioSvc.getPreguntas(tipoExamen).subscribe(
+        data => {
+          console.log(data);
+          this.preguntas = data['Preguntas'];
+          console.log(this.preguntas);
     });
+    /*if (this._route.snapshot.paramMap.get('examenxusuario') == null){
+      var tipoExamen = {Nombre: examen, IdUsuario: this._route.snapshot.paramMap.get('id'), getPregunta: false, IdExamenXUsuario: ' '};
+      this.formularioSvc.getPreguntas(tipoExamen).subscribe(
+        data => {
+          this.router.navigate(['/formulario', this._route.snapshot.paramMap.get('id'), this._route.snapshot.paramMap.get('examen'), data['IdExamenXUsuario']]);
+      });
+    }
+    else{
+      var tipoExamen = {Nombre: examen, IdUsuario: this._route.snapshot.paramMap.get('id'), getPregunta: true, IdExamenXUsuario: this._route.snapshot.paramMap.get('examenxusuario')};
+      this.formularioSvc.getPreguntas(tipoExamen).subscribe(
+        data => {
+          console.log(data);
+          this.preguntas = data['Preguntas'];
+          console.log(this.preguntas);
+      });
+    }*/
+    
     
     this.flag = false;
     this.minutes = 14;
@@ -59,7 +77,10 @@ export class FormularioComponent implements OnInit{
       }
       if(this.flag == true){
         clearInterval(this.timeValue);
-        this.router.navigate(['/answer']);
+        var userId = this._route.snapshot.paramMap.get('id');
+        var examenxusuario = this._route.snapshot.paramMap.get('examenxusuario');
+        this.router.navigate(['/answer', userId, examenxusuario]);
+        //this.router.navigate(['/answer']);
       }
     }, 1000);
 
@@ -70,25 +91,31 @@ export class FormularioComponent implements OnInit{
     });
   }
   terminar(){
-    this.router.navigate(['/answer']);
+    this.respondida()
     clearInterval(this.timeValue);
+    var userId = this._route.snapshot.paramMap.get('id');
+    var examenxusuario = this._route.snapshot.paramMap.get('examenxusuario');
+    this.router.navigate(['/answer', userId, examenxusuario]);
   }
   respondida(){
     console.log(this.answerForm.value);
     //Si es null mirar el examen creado en la base de datos y si no se encuentra respuesta
     //a una pregunta se marca como erronea
-    if (this.answerForm.value.answersData["answer"] != null){
-      var answer = this.answerForm.value.answersData["answer"].split('.');
-      var seleccionada = answer[0];
-      var IdPregunta = answer[1];
-      var respuestaCorrecta = answer[2];
-      var respuesta = {IdPregunta: IdPregunta, Respuesta: seleccionada, RespuestaCorrecta: respuestaCorrecta};
-      this.formularioSvc.sendRespuesta(respuesta).subscribe(
-        data => {
-          console.log(data);
-      });
-    }
-    //this.answerForm.reset();
+    //var answer;
+    //if (this.answerForm.value.answersData["answer"] != null){
+    var answer = this.answerForm.value.answersData["answer"].split('.');
+    //}
+    var seleccionada = answer[0];
+    var idexamenxusuario = this._route.snapshot.paramMap.get('examenxusuario');
+    var idusuario = this._route.snapshot.paramMap.get('id');
+    var IdPregunta = answer[1];
+    var respuestaCorrecta = answer[2];
+    var respuesta = {IdPregunta: IdPregunta, IdUsuario: idusuario, IdExamenXUsuario: idexamenxusuario, Respuesta: seleccionada, RespuestaCorrecta: respuestaCorrecta};
+    this.formularioSvc.sendRespuesta(respuesta).subscribe(
+      data => {
+        console.log(data);
+    });
+    this.answerForm.reset();
   }
 
   handlePage(e: PageEvent){

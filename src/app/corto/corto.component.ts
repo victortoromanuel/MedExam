@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-corto',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CortoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router : Router, private route : ActivatedRoute) { }
 
   ngOnInit(): void {
+  }
+
+  goToPago() {
+    var userId = this.route.params.subscribe(params => {
+      this.router.navigate(['/pago', params['id']]);
+    });
   }
 
 }

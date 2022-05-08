@@ -17,6 +17,7 @@
                                 <input type="radio" name="answer" value="B.{{ p.value.IdPregunta }}.{{ p.value.RespuestaCorrecta }}" formControlName="answer"/> {{ p.value.OpcionB }}<br />
                                 <input type="radio" name="answer" value="C.{{ p.value.IdPregunta }}.{{ p.value.RespuestaCorrecta }}" formControlName="answer"/> {{ p.value.OpcionC }}<br />
                                 <input type="radio" name="answer" value="D.{{ p.value.IdPregunta }}.{{ p.value.RespuestaCorrecta }}" formControlName="answer"/> {{ p.value.OpcionD }}<br />
+                                <input type="radio" name="answer" value="N.{{ p.value.IdPregunta }}.{{ p.value.RespuestaCorrecta }}" formControlName="answer" [value]= "true" [checked]="check" hidden/> 
                             </div>
                         </div>
                     </div>

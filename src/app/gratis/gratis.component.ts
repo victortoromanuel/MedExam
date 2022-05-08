@@ -22,14 +22,17 @@ export class GratisComponent implements OnInit {
   }
 
   generarPreguntas(){
-    var tipoExamen = {Nombre: "Gratis"};
+    console.log("entro sapo")
+    var tipoExamen = {Nombre: 'Examen gratis', IdUsuario: this.route.snapshot.paramMap.get('id'), getPregunta: false, IdExamenXUsuario: ' '};
+    //var tipoExamen = {Nombre: "Gratis"};
     this.gratisSvc.getPreguntas(tipoExamen).subscribe(
       data => {
         console.log(data);
+        this.router.navigate(['/formulario', this.route.snapshot.paramMap.get('id'), 'gratis', data['IdExamenXUsuario']]);
     });
-    var userId = this.route.params.subscribe(params => {
-      this.router.navigate(['/formulario', 0]);
-    });
+    /*var userId = this.route.params.subscribe(params => {
+      this.router.navigate(['/formulario', params['id'], 'gratis']);
+    });*/
   }
   
 }

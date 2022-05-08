@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PagoService } from './pago.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class PagoComponent implements OnInit {
 
   popup_activated : boolean = false;
   
-  constructor(private router : Router, private pagoSvc: PagoService) { }
+  constructor(private router : Router, private route : ActivatedRoute, private pagoSvc: PagoService) { }
 
   ngOnInit(): void {
   }
@@ -25,16 +25,14 @@ export class PagoComponent implements OnInit {
     var examen = (<HTMLInputElement>document.getElementById("examen")).value;
     var idExamen;
     if (examen == "Examen corto"){
-      idExamen = 1;
+      idExamen = 'corto';
     }
     else if (examen == "Examen largo"){
-      idExamen = 2;
+      idExamen = 'largo';
     }
-    /*var tipoExamen = {Nombre: examen};
-    this.pagoSvc.getPreguntas(tipoExamen).subscribe(
-      data => {
-        console.log(data);
-    });*/
-    this.router.navigate(['/formulario', idExamen]);
+
+    var userId = this.route.params.subscribe(params => {
+      this.router.navigate(['/formulario', params['id'], idExamen]);
+    });
   }
 }
