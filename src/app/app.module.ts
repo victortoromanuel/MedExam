@@ -17,7 +17,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ForgotpswComponent } from './forgotpsw/forgotpsw.component';
 import { RecpswComponent } from './recpsw/recpsw.component';
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
 import { GratisComponent } from './gratis/gratis.component';
 import { CortoComponent } from './corto/corto.component';
@@ -51,6 +51,7 @@ import { CustomMatPaginatorIntl } from "./paginator-es";
     
   ],
   imports: [
+    FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(AppRoutes,{

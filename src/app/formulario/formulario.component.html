@@ -11,25 +11,27 @@
                     <div class="card">
                         <div class="pregresp">
                         <div class="pregunta">{{ p.value.Pregunta }}<br /></div>
-                            <div class="respuestas" formGroupName="answersData">
+                            <div class="respuestas">
                                 <hr>
-                                <input type="radio" name="answer" value="A.{{ p.value.IdPregunta }}.{{ p.value.RespuestaCorrecta }}" formControlName="answer"/> {{ p.value.OpcionA }}<br />
-                                <input type="radio" name="answer" value="B.{{ p.value.IdPregunta }}.{{ p.value.RespuestaCorrecta }}" formControlName="answer"/> {{ p.value.OpcionB }}<br />
-                                <input type="radio" name="answer" value="C.{{ p.value.IdPregunta }}.{{ p.value.RespuestaCorrecta }}" formControlName="answer"/> {{ p.value.OpcionC }}<br />
-                                <input type="radio" name="answer" value="D.{{ p.value.IdPregunta }}.{{ p.value.RespuestaCorrecta }}" formControlName="answer"/> {{ p.value.OpcionD }}<br />
-                                <input type="radio" name="answer" value="N.{{ p.value.IdPregunta }}.{{ p.value.RespuestaCorrecta }}" formControlName="answer" [value]= "true" [checked]="check" hidden/> 
+                                <input type="radio" name="answer" value="A" [(ngModel)]="answer"  formControlName="answer"/> {{ p.value.OpcionA }}<br />
+                                <input type="radio" name="answer" value="B" [(ngModel)]="answer"  formControlName="answer"/> {{ p.value.OpcionB }}<br />
+                                <input type="radio" name="answer" value="C" [(ngModel)]="answer"  formControlName="answer"/> {{ p.value.OpcionC }}<br />
+                                <input type="radio" name="answer" value="D" [(ngModel)]="answer"  formControlName="answer"/> {{ p.value.OpcionD }}<br />
+                                <input type="radio" name="answer" value="N" [(ngModel)]="answer"  formControlName="answer" checked/> nula<br />
+                                <input type="text" id="info" value="N.{{ p.value.IdPregunta }}.{{ p.value.RespuestaCorrecta }}"/>
                             </div>
                         </div>
                     </div>
                 </ng-container>
             </ng-container>
             <mat-paginator [length]="preguntas.length"
+                (click)="respondida()" 
                 [pageSize]="page_size"
                 [pageSizeOptions]="pageSizeOptions"
                 [hidePageSize]="true"
                 (page)="handlePage($event)"
                 aria-label="Select page" 
-                (click)="respondida()" showFirstLastButtons>
+                showFirstLastButtons>
             </mat-paginator>
             <div style="display: flex; align-items: center; justify-content: center">
                 <a class="btn btn-primary" role="button" aria-disabled="true" (click)="terminar()">Terminar</a>

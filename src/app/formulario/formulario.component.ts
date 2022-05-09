@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormularioService } from './formulario.service';
 import { PageEvent } from '@angular/material/paginator';
 import { FormControl, FormGroup, MaxLengthValidator, Validators } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-formulario',
@@ -14,6 +15,7 @@ import { FormControl, FormGroup, MaxLengthValidator, Validators } from '@angular
 export class FormularioComponent implements OnInit{
   preguntas = [];
   answerForm: FormGroup;
+  answer = 'N';
   constructor(private router : Router, private _route: ActivatedRoute, private formularioSvc: FormularioService) {}
 
   minutes: number;
@@ -23,7 +25,7 @@ export class FormularioComponent implements OnInit{
 
   ngOnInit(): void {
     console.log(this._route.snapshot.paramMap.get('examen'));
-    var check = true;
+    
     var examen;
     if (this._route.snapshot.paramMap.get('examen') == 'gratis'){
       examen = "Examen gratis";
@@ -85,9 +87,7 @@ export class FormularioComponent implements OnInit{
     }, 1000);
 
     this.answerForm = new FormGroup({
-      'answersData': new FormGroup({
-        'answer': new FormControl(),
-      }),
+      'answer': new FormControl()
     });
   }
   terminar(){
@@ -98,24 +98,25 @@ export class FormularioComponent implements OnInit{
     this.router.navigate(['/answer', userId, examenxusuario]);
   }
   respondida(){
-    console.log(this.answerForm.value);
+    console.log(this.answerForm.value["answer"]);
     //Si es null mirar el examen creado en la base de datos y si no se encuentra respuesta
     //a una pregunta se marca como erronea
-    //var answer;
-    //if (this.answerForm.value.answersData["answer"] != null){
-    var answer = this.answerForm.value.answersData["answer"].split('.');
-    //}
-    var seleccionada = answer[0];
+    var answer = this.answerForm.value["answer"];
+    var infoPregunta = (<HTMLInputElement>document.getElementById("info")).value.split('.');
+
+    var seleccionada = answer;
     var idexamenxusuario = this._route.snapshot.paramMap.get('examenxusuario');
     var idusuario = this._route.snapshot.paramMap.get('id');
-    var IdPregunta = answer[1];
-    var respuestaCorrecta = answer[2];
+    var IdPregunta: number = +infoPregunta[1];
+    var respuestaCorrecta = infoPregunta[2];
     var respuesta = {IdPregunta: IdPregunta, IdUsuario: idusuario, IdExamenXUsuario: idexamenxusuario, Respuesta: seleccionada, RespuestaCorrecta: respuestaCorrecta};
     this.formularioSvc.sendRespuesta(respuesta).subscribe(
       data => {
         console.log(data);
     });
+    this.answer = 'N';
     this.answerForm.reset();
+    this.answer = 'N';
   }
 
   handlePage(e: PageEvent){
