@@ -13,19 +13,19 @@ import { PagoComponent } from 'app/pago/pago.component';
 import { AnswersComponent } from 'app/answers/answers.component';
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'dashboard/:id',      component: DashboardComponent },
-    { path: 'user/:id',           component: UserComponent },
-    { path: 'table/:id',          component: TableComponent },
-    { path: 'menu/:id',          component: MenuComponent },
+    { path: 'dashboard',      component: DashboardComponent },
+    { path: 'user',           component: UserComponent },
+    { path: 'table',          component: TableComponent },
+    { path: 'menu',          component: MenuComponent },
         //{ path: 'dashboard/',      component: DashboardComponent }, //Borrar en produccion
         //{ path: 'user/',           component: UserComponent }, //Borrar en produccion
         //{ path: 'table/',          component: TableComponent }, //Borrar en produccion
         //{ path: 'menu/',          component: MenuComponent }, //Borrar en produccion
-    { path: 'free/:id',          component: GratisComponent },
-    { path: 'corto/:id',          component: CortoComponent },
-    { path: 'largo/:id',          component: LargoComponent },
+    { path: 'free/',          component: GratisComponent },
+    { path: 'corto/',          component: CortoComponent },
+    { path: 'largo/',          component: LargoComponent },
     { path: 'pago',          component: PagoComponent },
-    { path: 'pago/:id',          component: PagoComponent },
+    { path: 'pago/',          component: PagoComponent },
     { path: 'answer',          component: AnswersComponent },
     { path: 'answer/:id/:examenxusuario',          component: AnswersComponent },
     { path: 'formulario',          component: FormularioComponent },
