@@ -98,12 +98,9 @@ export class FormularioComponent implements OnInit{
     this.router.navigate(['/answer', userId, examenxusuario]);
   }
   respondida(){
-    console.log(this.answerForm.value["answer"]);
-    //Si es null mirar el examen creado en la base de datos y si no se encuentra respuesta
-    //a una pregunta se marca como erronea
-    var answer = this.answerForm.value["answer"];
     var infoPregunta = (<HTMLInputElement>document.getElementById("info")).value.split('.');
-
+    console.log(this.answerForm.value["answer"]);
+    var answer = this.answerForm.value["answer"];
     var seleccionada = answer;
     var idexamenxusuario = this._route.snapshot.paramMap.get('examenxusuario');
     var idusuario = this._route.snapshot.paramMap.get('id');
@@ -114,7 +111,6 @@ export class FormularioComponent implements OnInit{
       data => {
         console.log(data);
     });
-    this.answer = 'N';
     this.answerForm.reset();
     this.answer = 'N';
   }

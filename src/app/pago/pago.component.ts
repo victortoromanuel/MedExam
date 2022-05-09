@@ -31,8 +31,15 @@ export class PagoComponent implements OnInit {
       idExamen = 'largo';
     }
 
-    var userId = this.route.params.subscribe(params => {
-      this.router.navigate(['/formulario', params['id'], idExamen]);
+    var tipoExamen = {Nombre: examen, IdUsuario: this.route.snapshot.paramMap.get('id'), getPregunta: false, IdExamenXUsuario: ' '};
+    this.pagoSvc.getPreguntas(tipoExamen).subscribe(
+      data => {
+        console.log(data);
+        this.router.navigate(['/formulario', this.route.snapshot.paramMap.get('id'), idExamen, data['IdExamenXUsuario']]);
     });
+
+    /*var userId = this.route.params.subscribe(params => {
+      this.router.navigate(['/formulario', params['id'], idExamen]);
+    });*/
   }
 }

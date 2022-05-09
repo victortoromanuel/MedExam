@@ -22,7 +22,6 @@ export class GratisComponent implements OnInit {
   }
 
   generarPreguntas(){
-    console.log("entro sapo")
     var tipoExamen = {Nombre: 'Examen gratis', IdUsuario: this.route.snapshot.paramMap.get('id'), getPregunta: false, IdExamenXUsuario: ' '};
     //var tipoExamen = {Nombre: "Gratis"};
     this.gratisSvc.getPreguntas(tipoExamen).subscribe(

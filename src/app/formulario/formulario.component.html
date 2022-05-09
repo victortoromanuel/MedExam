@@ -25,13 +25,12 @@
                 </ng-container>
             </ng-container>
             <mat-paginator [length]="preguntas.length"
-                (click)="respondida()" 
                 [pageSize]="page_size"
                 [pageSizeOptions]="pageSizeOptions"
                 [hidePageSize]="true"
                 (page)="handlePage($event)"
                 aria-label="Select page" 
-                showFirstLastButtons>
+                (page)="respondida()" showFirstLastButtons>
             </mat-paginator>
             <div style="display: flex; align-items: center; justify-content: center">
                 <a class="btn btn-primary" role="button" aria-disabled="true" (click)="terminar()">Terminar</a>
