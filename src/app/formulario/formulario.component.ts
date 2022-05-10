@@ -42,47 +42,34 @@ export class FormularioComponent implements OnInit{
           console.log(data);
           this.preguntas = data['Preguntas'];
           console.log(this.preguntas);
+          this.flag = false;
+          //this.minutes = 14;
+          this.minutes = data['Tiempo'] - 1;
+          this.seconds = 59;
+          if (document.getElementById("timer").innerHTML != null){
+            document.getElementById("timer").innerHTML = data['Tiempo'] + " : " + "00";
+          }
     });
-    /*if (this._route.snapshot.paramMap.get('examenxusuario') == null){
-      var tipoExamen = {Nombre: examen, IdUsuario: this._route.snapshot.paramMap.get('id'), getPregunta: false, IdExamenXUsuario: ' '};
-      this.formularioSvc.getPreguntas(tipoExamen).subscribe(
-        data => {
-          this.router.navigate(['/formulario', this._route.snapshot.paramMap.get('id'), this._route.snapshot.paramMap.get('examen'), data['IdExamenXUsuario']]);
-      });
-    }
-    else{
-      var tipoExamen = {Nombre: examen, IdUsuario: this._route.snapshot.paramMap.get('id'), getPregunta: true, IdExamenXUsuario: this._route.snapshot.paramMap.get('examenxusuario')};
-      this.formularioSvc.getPreguntas(tipoExamen).subscribe(
-        data => {
-          console.log(data);
-          this.preguntas = data['Preguntas'];
-          console.log(this.preguntas);
-      });
-    }*/
-    
-    
-    this.flag = false;
-    this.minutes = 14;
-    this.seconds = 59;
 
     this.timeValue = setInterval(() => {
-      document.getElementById("timer").innerHTML = this.minutes + " : " + this.seconds;
-      this.seconds--;
-      if (this.seconds == 0o0 && this.flag != true) {
-        this.minutes --;
-        this.seconds = 59;
-        if(this.minutes == -1){
-          this.minutes = 0;
-          this.seconds = 0;
-          this.flag = true;
+      if (document.getElementById("timer").innerHTML != null){
+        document.getElementById("timer").innerHTML = this.minutes + " : " + this.seconds;
+        this.seconds--;
+        if (this.seconds == 0o0 && this.flag != true) {
+          this.minutes --;
+          this.seconds = 59;
+          if(this.minutes == -1){
+            this.minutes = 0;
+            this.seconds = 0;
+            this.flag = true;
+          }
         }
-      }
-      if(this.flag == true){
-        clearInterval(this.timeValue);
-        var userId = this._route.snapshot.paramMap.get('id');
-        var examenxusuario = this._route.snapshot.paramMap.get('examenxusuario');
-        this.router.navigate(['/answer', userId, examenxusuario]);
-        //this.router.navigate(['/answer']);
+        if(this.flag == true){
+          clearInterval(this.timeValue);
+          var userId = this._route.snapshot.paramMap.get('id');
+          var examenxusuario = this._route.snapshot.paramMap.get('examenxusuario');
+          this.router.navigate(['/answer', userId, examenxusuario]);
+        }
       }
     }, 1000);
 
@@ -90,6 +77,7 @@ export class FormularioComponent implements OnInit{
       'answer': new FormControl()
     });
   }
+  
   terminar(){
     this.respondida()
     clearInterval(this.timeValue);

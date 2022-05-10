@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { DashboardService } from 'app/pages/dashboard/dashboard.service';
 import { ActivatedRoute } from '@angular/router';
+import { ConstantPool } from '@angular/compiler';
 
 export interface RouteInfo {
     path: string;
@@ -25,35 +26,74 @@ export const ROUTES: RouteInfo[] = [
 
 export class SidebarComponent implements OnInit {
     public menuItems: any[];
-    constructor(private router : Router, private route: ActivatedRoute, private dashboardSvc: DashboardService) { }
+    userId: string;
+    constructor(private router : Router, private route: ActivatedRoute, private dashboardSvc: DashboardService) {
+        router.events.subscribe((routerEvent) => {
+            if (routerEvent instanceof NavigationEnd) {
+                console.log('current route:', routerEvent.url);
+                var url = routerEvent.url.toString();
+                //var url = "/formulario/13444/pablo";
+                var i = 1;
+                var start = 0;
+                var end = 0;
+                for (var j = 0; j < 2; j++){
+                    while (url[i] != '/'){
+                        i++;
+                        if (i >= url.length){
+                            break;
+                        }
+                    }
+                    i++;
+                    if (j == 0){
+                        start = i;
+                    }
+                    else if (j == 1){
+                        end = i-1;
+                    }
+                }
+                if (start+1 == url.length){
+                    this.userId = url[start];
+                }
+                else if (start < end){
+                    var id = '';
+                    for (var c = start; c < end; c++){
+                        id = id + url[c];
+                    }
+                    this.userId = id;
+                }
+                else if (start+1 < url.length && start >= end){
+                    var id = '';
+                    for (var c = start; c < url.length; c++){
+                        id = id + url[c];
+                    }
+                    this.userId = id;
+                }
+                console.log('El id es: ', this.userId);
+            }
+        });
+    }
 
     ngOnInit() {
         this.menuItems = ROUTES.filter(menuItem => menuItem);
     }
 
     goToExamenes() {
-        /*console.log("Como la ves");
-        var userId = this.route.params.subscribe(params => {
-            console.log("holas");
-            console.log(params['id']);
-            this.router.navigate(['/menu', params['id']]);
-        });*/
         var userId = this.dashboardSvc.getData();
-        this.router.navigate(['/menu', userId]);
+        this.router.navigate(['/menu', this.userId]);
     }
 
     goToDashboard() {
         var userId = this.dashboardSvc.getData();
-        this.router.navigate(['/dashboard', userId]);
+        this.router.navigate(['/dashboard', this.userId]);
     }
 
     goToTable() {
         var userId = this.dashboardSvc.getData();
-        this.router.navigate(['/table', userId]);
+        this.router.navigate(['/table', this.userId]);
     }
 
     goToUser() {
         var userId = this.dashboardSvc.getData();
-        this.router.navigate(['/user', userId]);
+        this.router.navigate(['/user', this.userId]);
     }
 }
