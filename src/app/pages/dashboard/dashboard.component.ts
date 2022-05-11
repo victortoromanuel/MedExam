@@ -21,8 +21,9 @@ export class DashboardComponent implements OnInit{
   public chartColor;
   public chartEmail;
   public chartHours;
-
+  
     ngOnInit(){
+      
       this.chartColor = "#FFFFFF";
 
       this.canvas = document.getElementById("chartHours");

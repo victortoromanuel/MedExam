@@ -4,6 +4,7 @@ import { EmailValidator } from "@angular/forms";
 export interface UsuarioI{
     //IdUsuario: number;
     //Nombre?: string;
+    //Edad?: string;
     //ApellidoPaterno: string;
     //ApellidoMaterno: string;
     //Sexo: string;

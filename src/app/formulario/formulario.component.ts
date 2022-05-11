@@ -46,13 +46,13 @@ export class FormularioComponent implements OnInit{
           //this.minutes = 14;
           this.minutes = data['Tiempo'] - 1;
           this.seconds = 59;
-          if (document.getElementById("timer").innerHTML != null){
+          if (document.getElementById("timer") != null){
             document.getElementById("timer").innerHTML = data['Tiempo'] + " : " + "00";
           }
     });
 
     this.timeValue = setInterval(() => {
-      if (document.getElementById("timer").innerHTML != null){
+      if (document.getElementById("timer") != null){
         document.getElementById("timer").innerHTML = this.minutes + " : " + this.seconds;
         this.seconds--;
         if (this.seconds == 0o0 && this.flag != true) {

@@ -78,22 +78,22 @@ export class SidebarComponent implements OnInit {
     }
 
     goToExamenes() {
-        var userId = this.dashboardSvc.getData();
+        //var userId = this.dashboardSvc.getData();
         this.router.navigate(['/menu', this.userId]);
     }
 
     goToDashboard() {
-        var userId = this.dashboardSvc.getData();
+        //var userId = this.dashboardSvc.getData();
         this.router.navigate(['/dashboard', this.userId]);
     }
 
     goToTable() {
-        var userId = this.dashboardSvc.getData();
+        //var userId = this.dashboardSvc.getData();
         this.router.navigate(['/table', this.userId]);
     }
 
     goToUser() {
-        var userId = this.dashboardSvc.getData();
+        //var userId = this.dashboardSvc.getData();
         this.router.navigate(['/user', this.userId]);
     }
 }

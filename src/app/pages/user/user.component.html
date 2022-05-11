@@ -6,7 +6,7 @@
         <h3 class="card-title">Editar Perfil</h3>
       </div>
       <div class="card-body">
-        <form>
+        <form class="form-body" [formGroup]="userForm" (ngSubmit)="onSubmit()">
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
@@ -51,6 +51,7 @@
           </div>
           <div class="row">
             <div class="update ml-auto mr-auto">
+              <a (click)="enviarActualizacion(userForm.valid, userForm.touched)" class="btn btn-primary btn-round" role="button" aria-disabled="true" type="submit">Continuar</a>
               <button type="submit" class="btn btn-primary btn-round">Actualizar Perfil</button>
             </div>
           </div>
