@@ -9,6 +9,7 @@ import { DashboardComponent }       from '../../pages/dashboard/dashboard.compon
 import { UserComponent }            from '../../pages/user/user.component';
 import { TableComponent }           from '../../pages/table/table.component';
 import { MenuComponent }           from '../../pages/menu/menu.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -17,6 +18,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
+    ReactiveFormsModule,
     NgbModule
   ],
   declarations: [

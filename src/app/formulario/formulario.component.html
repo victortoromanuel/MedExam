@@ -17,8 +17,8 @@
                                 <input type="radio" name="answer" value="B" [(ngModel)]="answer"  formControlName="answer"/> {{ p.value.OpcionB }}<br />
                                 <input type="radio" name="answer" value="C" [(ngModel)]="answer"  formControlName="answer"/> {{ p.value.OpcionC }}<br />
                                 <input type="radio" name="answer" value="D" [(ngModel)]="answer"  formControlName="answer"/> {{ p.value.OpcionD }}<br />
-                                <input type="radio" name="answer" value="N" [(ngModel)]="answer"  formControlName="answer" checked/> nula<br />
-                                <input type="text" id="info" value="N.{{ p.value.IdPregunta }}.{{ p.value.RespuestaCorrecta }}"/>
+                                <input type="radio" name="answer" value="N" [(ngModel)]="answer"  formControlName="answer" checked hidden/><br />
+                                <input type="text" id="info" value="N.{{ p.value.IdPregunta }}.{{ p.value.RespuestaCorrecta }}" hidden/>
                             </div>
                         </div>
                     </div>

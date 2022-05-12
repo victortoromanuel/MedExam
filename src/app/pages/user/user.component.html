@@ -11,7 +11,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label>Nombre</label>
-                <input type="text" class="form-control" placeholder="Ingrese su nombre">
+                <input type="text" class="form-control" formControlName="nombre" value="{{ nombre }}" placeholder="Ingrese su nombre">
               </div>
             </div>
           </div>
@@ -19,19 +19,19 @@
             <div class="col-md-5">
               <div class="form-group">
                 <label>Correo electrónico</label>
-                <input type="email" class="form-control" disabled="" placeholder="Correo">
+                <input type="email" class="form-control" disabled="" value="{{ email }}" placeholder="Correo">
               </div>
             </div>
             <div class="col-md-3">
               <div class="form-group">
                 <label>Usuario</label>
-                <input type="text" class="form-control"  disabled="" placeholder="Username" value="michael23">
+                <input type="text" class="form-control"  disabled="" value="{{ usuario }}" placeholder="Username" value="michael23">
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label for="exampleInputEmail1">Edad</label>
-                <input type="number" class="form-control" placeholder="Ingrese su edad">
+                <input type="number" class="form-control" formControlName="edad" value="{{ edad }}" placeholder="Ingrese su edad">
               </div>
             </div>
           </div>
@@ -39,20 +39,19 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label>Nueva contraseña</label>
-                <input type="text" class="form-control" placeholder="********">
+                <input type="password" class="form-control" formControlName="psw" placeholder="Ingrese su contraseña">
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label>Confirmar contraseña</label>
-                <input type="text" class="form-control" placeholder="Ingrese su contraseña de nuevo">
+                <input type="password" class="form-control" formControlName="pswConfirm" placeholder="Ingrese su contraseña de nuevo">
               </div>
             </div>
           </div>
           <div class="row">
             <div class="update ml-auto mr-auto">
-              <a (click)="enviarActualizacion(userForm.valid, userForm.touched)" class="btn btn-primary btn-round" role="button" aria-disabled="true" type="submit">Continuar</a>
-              <button type="submit" class="btn btn-primary btn-round">Actualizar Perfil</button>
+              <a (click)="enviarActualizacion(userForm.valid, userForm.touched)" class="btn btn-primary btn-round" role="button" aria-disabled="true" type="submit">Actualizar Perfil</a>
             </div>
           </div>
         </form>
