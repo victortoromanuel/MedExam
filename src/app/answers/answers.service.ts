@@ -14,4 +14,8 @@ export class AnswersService {
   getRespuestas(respuesta: RespuestaI):Observable<RespuestaI>{
     return this.http.post<RespuestaI>(this.urlRespuestaAPI, respuesta);
   }
+
+  terminarExamen(message: any):Observable<any>{
+    return this.http.post<any>(this.urlRespuestaAPI, message);
+  }
 }

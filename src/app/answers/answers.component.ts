@@ -27,7 +27,12 @@ export class AnswersComponent implements OnInit {
   }
 
   terminar(){
-    this.router.navigate(['/table']);
+    var message = {IdUsuario: this.route.snapshot.paramMap.get('id'), IdExamenXUsuario: this.route.snapshot.paramMap.get('examenxusuario'), Terminar: true};
+    this.answersSvc.terminarExamen(message).subscribe(
+      data => {
+        console.log(data);
+    });
+    this.router.navigate(['/table', this.route.snapshot.paramMap.get('id')]);
   }
   acertada(){
 

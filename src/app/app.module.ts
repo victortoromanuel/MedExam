@@ -28,7 +28,7 @@ import { AnswersComponent } from './answers/answers.component';
 import { PaginatePipe } from './pipe/paginate.pipe';
 import {MatPaginatorIntl, MatPaginatorModule} from '@angular/material/paginator';
 import { CustomMatPaginatorIntl } from "./paginator-es";
-
+import { AdminLayoutRoutes } from "./layouts/admin-layout/admin-layout.routing";
 
 @NgModule({
   declarations: [

@@ -13,7 +13,7 @@
             <div class="numbers">
               <p class="card-category">Total de exámenes tomados:</p>
               <br>
-              <p class="card-title">4<p>
+              <p class="card-title">{{ examenesTomados }}<p>
             </div>
           </div>
         </div>
@@ -35,7 +35,7 @@
             <div class="numbers">
               <p class="card-category">Total de preguntas acertadas:</p>
               <br>
-              <p class="card-title">76/125<p>
+              <p class="card-title">{{ pAcertadas }}/{{ pTotal }}<p>
             </div>
           </div>
         </div>
@@ -62,9 +62,6 @@
                 Examen
               </th>
               <th>
-                Costo
-              </th>
-              <th>
                 Puntaje
               </th>
               <th class="text-right">
@@ -72,62 +69,26 @@
               </th>
             </thead>
             <tbody>
-              <tr>
-                <td>
-                  Examen gratis
-                </td>
-                <td> 
-                  $0.0 COP
-                </td>
-                <td>
-                  4/5
-                </td>
-                <td class="text-right">
-                  <a routerLink="/answer">Ver más</a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Examen corto
-                </td>
-                <td>
-                  $40.000 COP
-                </td>
-                <td>
-                  21/30
-                </td>
-                <td class="text-right">
-                  <a routerLink="/answer">Ver más</a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Examen largo
-                </td>
-                <td>
-                  $70.000 COP
-                </td>
-                <td>
-                  35/50
-                </td>
-                <td class="text-right">
-                  <a routerLink="/answer">Ver más</a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Examen por especialidad (Urgencias)
-                </td>
-                <td>
-                  $80.000 COP
-                </td>
-                <td>
-                  16/40
-                </td>
-                <td class="text-right">
-                  <a routerLink="/answer">Ver más</a>
-                </td>
-              </tr>
+              <ng-container *ngFor="let examen of examenes | paginate:page_size:page_number">
+                <ng-container *ngFor="let e of examen | keyvalue"> 
+                  <tr>
+                    <td>{{ e.value.Nombre }}</td>
+                    <td>{{ e.value.PreguntasCorrectas }}/{{ e.value.TotalPreguntas }}</td>
+                    <td class="text-right">
+                      <a routerLink="/answer/{{userId}}/{{e.value.IdExamenXUsuario}}" >Ver más</a>
+                    </td>
+                  </tr>
+                </ng-container>
+              </ng-container>
+              <mat-paginator [length]="examenesTomados"
+                [pageSize]="page_size"
+                [pageSizeOptions]="pageSizeOptions"
+                [hidePageSize]="true"
+                (page)="handlePage($event)"
+                aria-label="Select page" 
+                showFirstLastButtons>
+              </mat-paginator>
+
             </tbody>
           </table>
         </div>
