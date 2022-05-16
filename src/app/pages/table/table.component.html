@@ -80,15 +80,16 @@
                   </tr>
                 </ng-container>
               </ng-container>
-              <mat-paginator [length]="examenesTomados"
-                [pageSize]="page_size"
-                [pageSizeOptions]="pageSizeOptions"
-                [hidePageSize]="true"
-                (page)="handlePage($event)"
-                aria-label="Select page" 
-                showFirstLastButtons>
-              </mat-paginator>
-
+              <ng-container *ngIf="examenesTomados > 5">
+                <mat-paginator [length]="examenesTomados"
+                  [pageSize]="page_size"
+                  [pageSizeOptions]="pageSizeOptions"
+                  [hidePageSize]="true"
+                  (page)="handlePage($event)"
+                  aria-label="Select page" 
+                  showFirstLastButtons>
+                </mat-paginator>
+              </ng-container>
             </tbody>
           </table>
         </div>
