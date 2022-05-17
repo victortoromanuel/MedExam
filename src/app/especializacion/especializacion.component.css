@@ -9,7 +9,7 @@
     padding: 2px 16px;
   }
 
-#especializacion {
+.especializacion {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,4 +21,11 @@ select {
     align-items: center;
     justify-content: center;
     margin: 0 auto;
+  }
+
+  @media screen and (max-width: 400px){
+    .especializacion {
+      padding: 0 15px;
+    }
+
   }
