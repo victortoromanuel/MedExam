@@ -40,7 +40,7 @@ export class DashboardComponent implements OnInit{
                 console.log(data);
                 
       
-      
+      /*
       this.chartColor = "#FFFFFF";
 
       this.canvas = document.getElementById("chartHours");
@@ -119,7 +119,7 @@ export class DashboardComponent implements OnInit{
           },
         }
       });
-
+      */
       
       this.canvas = document.getElementById("chartEmail");
       this.ctx = this.canvas.getContext("2d");
