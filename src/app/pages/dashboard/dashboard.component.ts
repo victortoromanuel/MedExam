@@ -14,6 +14,11 @@ import { Subscription } from 'rxjs';
 
 export class DashboardComponent implements OnInit{
   private routeSub: Subscription;
+  examenesTomados: number;
+  pAcertadas: number;
+  pTotal: number;
+  public dPastel;
+  promedioAcrTot: number;
   constructor(private router : Router, private route: ActivatedRoute, private dashboardSvc: DashboardService) {}
   
   public canvas : any;
@@ -23,6 +28,18 @@ export class DashboardComponent implements OnInit{
   public chartHours;
   
     ngOnInit(){
+
+      var user = {userId: this.route.snapshot.paramMap.get('id')};
+        this.dashboardSvc.getDataToDashboard(user).subscribe(
+            data => {
+                this.examenesTomados = Number(data['TotalExamenes']);
+                this.pAcertadas = Number(data['PreguntasCorrectasGeneral']);
+                this.pTotal = Number(data['TotalPreguntasGeneral']);
+                this.dPastel = data['Pastel'];
+                this.promedioAcrTot = (this.pAcertadas/this.pTotal)*100;
+                console.log(data);
+                
+      
       
       this.chartColor = "#FFFFFF";
 
@@ -103,7 +120,7 @@ export class DashboardComponent implements OnInit{
         }
       });
 
-
+      
       this.canvas = document.getElementById("chartEmail");
       this.ctx = this.canvas.getContext("2d");
       this.chartEmail = new Chart(this.ctx, {
@@ -115,13 +132,12 @@ export class DashboardComponent implements OnInit{
             pointRadius: 0,
             pointHoverRadius: 0,
             backgroundColor: [
-              '#e3e3e3',
-              '#4acccd',
+              '#4acccd', 
               '#fcc468',
-              '#ef8157'
             ],
             borderWidth: 0,
-            data: [342, 480, 530, 120]
+            //data: [100, 222]
+            data: this.dPastel,
           }]
         },
 
@@ -218,5 +234,7 @@ export class DashboardComponent implements OnInit{
       });
       //var userId = this.route.snapshot.paramMap.get('id');
       //this.dashboardSvc.setData(userId);
+
+    });
     }
 }

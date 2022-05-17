@@ -32,7 +32,7 @@ export class AnswersComponent implements OnInit {
       data => {
         console.log(data);
     });
-    this.router.navigate(['/table', this.route.snapshot.paramMap.get('id')]);
+    this.router.navigate(['/dashboard', this.route.snapshot.paramMap.get('id')]);
   }
   acertada(){
 

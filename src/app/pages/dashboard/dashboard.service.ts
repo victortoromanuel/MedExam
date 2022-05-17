@@ -1,14 +1,19 @@
-//Servicio para enviar Id del usuario desde el dashboard a los componentes del menu hamburguesa
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardService {
-
-  constructor() { }
-
   private data;
+
+  urlAPI: string = 'http://127.0.0.1:8000/api/dashboard/';
+  constructor(private http: HttpClient) { }
+  
+  getDataToDashboard(data: any):Observable<any>{
+    return this.http.post<any>(this.urlAPI, data);
+  }
 
   setData(data){
     this.data = data;
