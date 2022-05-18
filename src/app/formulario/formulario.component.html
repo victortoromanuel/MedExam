@@ -1,4 +1,7 @@
 <div class="row">
+    <div class="col-md-1">
+        <h2>{{ nombreExamen }}</h2>
+    </div>
     <div class="col-md-2">
         <div id="time">
             <h3 id="timer"></h3>
@@ -32,8 +35,9 @@
                 aria-label="Select page" 
                 (page)="respondida()" showFirstLastButtons>
             </mat-paginator>
+            
             <div style="display: flex; align-items: center; justify-content: center">
-                <a class="btn btn-primary" role="button" aria-disabled="true" (click)="terminar()">Terminar</a>
+                <a *ngIf="page_number == preguntas.length;" class="btn btn-primary" role="button" aria-disabled="true" (click)="terminar()">Terminar</a>
             </div>
         </form>
     </div>

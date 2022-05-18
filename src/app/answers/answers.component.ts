@@ -27,11 +27,11 @@ export class AnswersComponent implements OnInit {
   }
 
   terminar(){
-    var message = {IdUsuario: this.route.snapshot.paramMap.get('id'), IdExamenXUsuario: this.route.snapshot.paramMap.get('examenxusuario'), Terminar: true};
+    /*var message = {IdUsuario: this.route.snapshot.paramMap.get('id'), IdExamenXUsuario: this.route.snapshot.paramMap.get('examenxusuario'), Terminar: true};
     this.answersSvc.terminarExamen(message).subscribe(
       data => {
         console.log(data);
-    });
+    });*/
     this.router.navigate(['/dashboard', this.route.snapshot.paramMap.get('id')]);
   }
   acertada(){

@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit{
   pAcertadas: number;
   pTotal: number;
   public dPastel;
-  promedioAcrTot: number;
+  public promedioAcrTot;
   constructor(private router : Router, private route: ActivatedRoute, private dashboardSvc: DashboardService) {}
   
   public canvas : any;
@@ -36,7 +36,7 @@ export class DashboardComponent implements OnInit{
                 this.pAcertadas = Number(data['PreguntasCorrectasGeneral']);
                 this.pTotal = Number(data['TotalPreguntasGeneral']);
                 this.dPastel = data['Pastel'];
-                this.promedioAcrTot = (this.pAcertadas/this.pTotal)*100;
+                this.promedioAcrTot = ((this.pAcertadas/this.pTotal)*100).toFixed(2);
                 console.log(data);
                 
       
@@ -185,7 +185,7 @@ export class DashboardComponent implements OnInit{
           },
         }
       });
-
+      /*
       var speedCanvas = document.getElementById("speedChart");
 
       var dataFirst = {
@@ -227,7 +227,7 @@ export class DashboardComponent implements OnInit{
         hover: false,
         data: speedData,
         options: chartOptions
-      });
+      });*/
       this.routeSub = this.route.params.subscribe(params => {
         console.log(params['id']) //log the value of id
         this.dashboardSvc.setData(params['id']);

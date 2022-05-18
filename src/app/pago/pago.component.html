@@ -123,16 +123,17 @@
                 <div class="col-md-12">
                     <p>Examen a pagar:</p>
                     <div class="form-group">
-                        <select id="examen" class="form-control" style="border-color: #cacaca;">
-                        <option>Examen corto</option>
-                        <option>Examen largo</option>
-                        <option>Examen especializado</option>
-                    </select>
+                        <!--<select id="examen" class="form-control" style="border-color: #cacaca;">
+                            <option>Examen corto</option>
+                            <option>Examen largo</option>
+                            <option>Examen especializado</option>
+                        </select>-->
+                        <p style="font-weight:bold; font-size: 14px; color: black;">{{ tipoExamen }}</p>
                     </div>
                     <br>
                     <div class="horizontal-list" style="display: flex;">
                         <p style="font-weight:bold; font-size: 14px; color: black;">TOTAL A PAGAR: </p>
-                        <p style="font-weight:bold; font-size: 14px; padding-left: 2%">$40.000</p>
+                        <p style="font-weight:bold; font-size: 14px; padding-left: 2%">{{ precio }}</p>
                     </div>
                     
                     <div class="row">

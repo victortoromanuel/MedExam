@@ -16,6 +16,7 @@ export class FormularioComponent implements OnInit{
   preguntas = [];
   answerForm: FormGroup;
   answer = 'N';
+  public nombreExamen;
   constructor(private router : Router, private _route: ActivatedRoute, private formularioSvc: FormularioService) {}
 
   minutes: number;
@@ -36,10 +37,14 @@ export class FormularioComponent implements OnInit{
     else if (this._route.snapshot.paramMap.get('examen') == 'largo'){
       examen = "Examen largo";
     }
-    var tipoExamen = {Nombre: examen, IdUsuario: this._route.snapshot.paramMap.get('id'), getPregunta: true, IdExamenXUsuario: this._route.snapshot.paramMap.get('examenxusuario')};
+    else if (this._route.snapshot.paramMap.get('examen') == 'especializacion'){
+      examen = "Examen especializado";
+    }
+    var tipoExamen = {Nombre: examen, IdUsuario: this._route.snapshot.paramMap.get('id'), getPregunta: true, IdExamenXUsuario: this._route.snapshot.paramMap.get('examenxusuario'), IdEspecialidad: this._route.snapshot.paramMap.get('idexamen')};
       this.formularioSvc.getPreguntas(tipoExamen).subscribe(
         data => {
           console.log(data);
+          this.nombreExamen = data['NombreExamen']
           this.preguntas = data['Preguntas'];
           console.log(this.preguntas);
           this.flag = false;

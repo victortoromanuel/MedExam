@@ -13,15 +13,15 @@
 
             <div action="#" id="esp">
               <p for="lang" class="especializacion">Seleccione la especialización en la que desea enfocarse:</p> <br>
-              <select name="languages" id="lang">
+              <select name="languages" id="especialidad">
                 <ng-container *ngFor="let especialidad of especializaciones">
-                  <option>{{ especialidad.Nombre }}</option>
+                  <option>{{ especialidad.IdEspecialidad }}. {{ especialidad.Nombre }}</option>
                 </ng-container>
               </select>
             </div>
             <br>
             <div style="display: flex; align-items: center; justify-content: center">
-                <a routerLink = "/pago" class="btn btn-primary" role="button" aria-disabled="true">Pagar</a>
+                <a (click)="goToPago()" class="btn btn-primary" role="button" aria-disabled="true">Pagar</a>
             </div>
               
           </div>

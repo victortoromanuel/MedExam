@@ -28,14 +28,15 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'corto',          component: CortoComponent }, //Borrar en produccion
     { path: 'largo',          component: LargoComponent }, //Borrar en produccion
     { path: 'pago',          component: PagoComponent }, //Borrar en produccion
-    { path: 'pago/:id',          component: PagoComponent },
+    { path: 'pago/:id/:examen',          component: PagoComponent },
+    { path: 'pago/:id/:examen/:especialidad',          component: PagoComponent },
     { path: 'answer',          component: AnswersComponent }, //Borrar en produccion
     { path: 'answer/:id',          component: AnswersComponent },
     { path: 'answer/:id/:examenxusuario',          component: AnswersComponent },
     { path: 'formulario',          component: FormularioComponent }, //Borrar en produccion
     { path: 'formulario/:id',          component: FormularioComponent },
     { path: 'formulario/:id/:examen',          component: FormularioComponent },
-    { path: 'formulario/:id/:examen/:examenxusuario',          component: FormularioComponent },
+    { path: 'formulario/:id/:examen/:idexamen/:examenxusuario',          component: FormularioComponent },
     { path: 'especializacion',          component: EspecializacionComponent },
     { path: 'especializacion/:id',          component: EspecializacionComponent },
 ];

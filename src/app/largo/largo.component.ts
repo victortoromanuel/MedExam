@@ -15,7 +15,7 @@ export class LargoComponent implements OnInit {
 
   goToPago() {
     var userId = this.route.params.subscribe(params => {
-      this.router.navigate(['/pago', params['id']]);
+      this.router.navigate(['/pago', params['id'], 'largo']);
     });
   }
 
