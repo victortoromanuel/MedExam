@@ -30,7 +30,9 @@ export class MenuComponent{
     }
 
     especializacion(){
-        this.router.navigate(['/especializacion']);
+        var userId = this.route.params.subscribe(params => {
+            this.router.navigate(['/especializacion', params['id']]);
+        });
     }
 }
 

@@ -37,4 +37,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'formulario/:id/:examen',          component: FormularioComponent },
     { path: 'formulario/:id/:examen/:examenxusuario',          component: FormularioComponent },
     { path: 'especializacion',          component: EspecializacionComponent },
+    { path: 'especializacion/:id',          component: EspecializacionComponent },
 ];
