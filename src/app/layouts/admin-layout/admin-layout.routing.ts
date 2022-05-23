@@ -23,6 +23,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'menu',          component: MenuComponent }, //Borrar en produccion
     { path: 'free/:id',          component: GratisComponent },
     { path: 'corto/:id',          component: CortoComponent },
+    //{ path: 'corto/:id?pago',          component: CortoComponent },
     { path: 'largo/:id',          component: LargoComponent },
     { path: 'free',          component: GratisComponent }, //Borrar en produccion
     { path: 'corto',          component: CortoComponent }, //Borrar en produccion

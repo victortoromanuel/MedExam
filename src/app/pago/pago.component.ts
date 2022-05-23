@@ -29,6 +29,12 @@ export class PagoComponent implements OnInit {
       this.tipoExamen = 'Examen especializado';
       this.precio = '$50.000';
     }
+    this.pagoSvc.getPago().subscribe(
+      data => {
+        console.log("BMAMSOSOSsssSSIIII");
+        console.log(data);
+    });
+    this.popup_activated = true;
     /*else{
       this.tipoExamen = [];
     }*/

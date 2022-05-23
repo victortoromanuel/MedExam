@@ -37,7 +37,7 @@ export class SidebarComponent implements OnInit {
                 var start = 0;
                 var end = 0;
                 for (var j = 0; j < 2; j++){
-                    while (url[i] != '/'){
+                    while (url[i] != '?' && url[i] != '/'){
                         i++;
                         if (i >= url.length){
                             break;
