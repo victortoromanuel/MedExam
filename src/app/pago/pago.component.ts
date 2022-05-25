@@ -13,9 +13,12 @@ export class PagoComponent implements OnInit {
   popup_activated : boolean = false;
   public tipoExamen;
   public precio;
+  refPayco: string = ''
+	transactionResponse:any ;
   constructor(private router : Router, private route : ActivatedRoute, private pagoSvc: PagoService) { }
 
   ngOnInit(): void {
+    //this.router.navigate(['/dashboard', this.route.snapshot.paramMap.get('id')]);
     var examen = this.route.snapshot.paramMap.get('examen');
     if (examen == 'corto'){
       this.tipoExamen = 'Examen corto';
@@ -29,12 +32,31 @@ export class PagoComponent implements OnInit {
       this.tipoExamen = 'Examen especializado';
       this.precio = '$50.000';
     }
-    this.pagoSvc.getPago().subscribe(
-      data => {
-        console.log("BMAMSOSOSsssSSIIII");
-        console.log(data);
+    
+    this.route.queryParams.subscribe(params => {
+      this.refPayco= params['ref_payco'] || params['x_ref_payco'];
+      console.log(this.refPayco);
+      
     });
-    this.popup_activated = true;
+
+    console.log("hola");
+   this.pagoSvc.getTransactionResponse(this.refPayco)
+   .subscribe((data: any) =>{
+      console.log("get");
+      console.log(data);
+       this.transactionResponse = data.data
+       
+       this.popup_activated = true;
+       if (!localStorage.getItem('foo')) { 
+        localStorage.setItem('foo', 'no reload') 
+        window.location.reload() 
+      } else {
+        localStorage.removeItem('foo') 
+      }
+   })
+
+    
+    
     /*else{
       this.tipoExamen = [];
     }*/

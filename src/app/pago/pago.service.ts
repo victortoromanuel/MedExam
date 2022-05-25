@@ -9,13 +9,18 @@ import { HttpClient } from '@angular/common/http';
 export class PagoService {
   urlAPI: string = 'http://127.0.0.1:8000/api/formulario/';
   urlEpayco: string = 'https://secure.epayco.co/validation/v1/reference/';
+  //urlResponse: string = 'https:'
   constructor(private http: HttpClient) { }
 
   getPreguntas(tipoExamen: ExamenI):Observable<ExamenI>{
     return this.http.post<ExamenI>(this.urlAPI, tipoExamen);
   }
 
-  getPago():Observable<any>{
-    return this.http.get<any>(this.urlEpayco);
+  getTransactionResponse(refPago: string):Observable<any>{
+    return this.http.get<any>(this.urlEpayco+refPago);
+  }
+
+  postTransactionResponse(refPago: string, mensaje:any):Observable<any>{
+    return this.http.post<any>(this.urlEpayco+refPago, mensaje);
   }
 }

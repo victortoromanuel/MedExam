@@ -26,12 +26,12 @@ export class CortoComponent implements OnInit {
         console.log("el corto si si");
         console.log(data);
     });
-    this.epayco = "<script src='https://checkout.epayco.co/checkout.js' data-epayco-key='437506cc0cb092ec55496b7d67cedd6f' class='epayco-button' data-epayco-amount='30000' data-epayco-tax='0.00' data-epayco-tax-ico='0.00' data-epayco-tax-base='30000' data-epayco-name='Examen corto' data-epayco-description='Examen corto' data-epayco-currency='cop' data-epayco-country='CO' data-epayco-test='true' data-epayco-external='false' data-epayco-response='http://localhost:4200/#/pago/1/corto' data-epayco-confirmation='http://localhost:4200/#/pago/1/corto' data-epayco-button='https://multimedia.epayco.co/dashboard/btns/btn5.png'></script>";
+    this.epayco = "<script src='https://checkout.epayco.co/checkout.js' data-epayco-key='437506cc0cb092ec55496b7d67cedd6f' class='epayco-button' data-epayco-amount='30000' data-epayco-tax='0.00' data-epayco-tax-ico='0.00' data-epayco-tax-base='30000' data-epayco-name='Examen corto' data-epayco-description='Examen corto' data-epayco-currency='cop' data-epayco-country='CO' data-epayco-test='true' data-epayco-external='false' data-epayco-acepted='http://localhost:4200/#/pago/1/corto' data-epayco-button='https://multimedia.epayco.co/dashboard/btns/btn5.png'></script>";
     postscribe('#epay', this.epayco);
     /*let el = document.createElement('script');
     el.setAttribute('src', 'https://checkout.epayco.co/checkout.js');
     el.setAttribute('data-epayco-key', '437506cc0cb092ec55496b7d67cedd6f');
-    el.setAttribute('class', 'epayco-button');
+    el.setAttribute('class', 'epayco-button');  
     el.setAttribute('data-epayco-amount', '30000');
     el.setAttribute('data-epayco-tax', '0.00');
     el.setAttribute('data-epayco-tax-ico', '0.00');

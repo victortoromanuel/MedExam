@@ -27,7 +27,7 @@ export class GratisComponent implements OnInit {
     this.gratisSvc.getPreguntas(tipoExamen).subscribe(
       data => {
         console.log(data);
-        this.router.navigate(['/formulario', this.route.snapshot.paramMap.get('id'), 'gratis', data['IdExamenXUsuario']]);
+        this.router.navigate(['/formulario', this.route.snapshot.paramMap.get('id'), 'gratis', 0, data['IdExamenXUsuario']]);
     });
     /*var userId = this.route.params.subscribe(params => {
       this.router.navigate(['/formulario', params['id'], 'gratis']);
