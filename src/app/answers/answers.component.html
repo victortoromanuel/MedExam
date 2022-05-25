@@ -65,8 +65,14 @@
                 showFirstLastButtons>
             </mat-paginator>
             <div style="display: flex; align-items: center; justify-content: center">
-                <a *ngIf="page_number == preguntas.length;" class="btn btn-primary" role="button" aria-disabled="true" (click)="terminar()">Terminar</a>
+                <a class="btn btn-primary" role="button" aria-disabled="true" (click)="goToTable()">Ir a exámenes tomados</a>
             </div>
+
+            <div style="display: flex; align-items: center; justify-content: center">
+                <a *ngIf="page_number == preguntas.length;" class="btn btn-primary" role="button" aria-disabled="true" (click)="terminar()">Ir a dashboard</a>
+            </div>
+
+            
         
     </div>
     <div class="col-md-2">

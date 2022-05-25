@@ -1,3 +1,4 @@
+import { LocationStrategy } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -12,7 +13,12 @@ export class AnswersComponent implements OnInit {
   preguntas = [];
   nroPreguntas : number;
   correctas : number;
-  constructor(private router : Router, private route: ActivatedRoute, private answersSvc: AnswersService) { }
+  constructor(private location: LocationStrategy, private router : Router, private route: ActivatedRoute, private answersSvc: AnswersService) { 
+    history.pushState(null, null, window.location.href);  
+    this.location.onPopState(() => {
+      history.pushState(null, null, window.location.href);
+    });
+  }
 
   ngOnInit(): void {
     var respuesta = {IdPregunta: -1, IdUsuario: this.route.snapshot.paramMap.get('id'), IdExamenXUsuario: this.route.snapshot.paramMap.get('examenxusuario'), Respuesta: " ", RespuestaCorrecta: " "};
@@ -34,6 +40,11 @@ export class AnswersComponent implements OnInit {
     });*/
     this.router.navigate(['/dashboard', this.route.snapshot.paramMap.get('id')]);
   }
+
+  goToTable(){
+    this.router.navigate(['/table', this.route.snapshot.paramMap.get('id')]);
+  }
+
   acertada(){
 
   }

@@ -6,6 +6,7 @@ import { FormularioService } from './formulario.service';
 import { PageEvent } from '@angular/material/paginator';
 import { FormControl, FormGroup, MaxLengthValidator, Validators } from '@angular/forms';
 import { NgForm } from '@angular/forms';
+import { LocationStrategy } from '@angular/common';
 
 @Component({
   selector: 'app-formulario',
@@ -17,7 +18,13 @@ export class FormularioComponent implements OnInit{
   answerForm: FormGroup;
   answer = 'N';
   public nombreExamen;
-  constructor(private router : Router, private _route: ActivatedRoute, private formularioSvc: FormularioService) {}
+  constructor(private location: LocationStrategy, private router : Router, private _route: ActivatedRoute, private formularioSvc: FormularioService) {
+    // Deshabilitar botan atras
+    /*history.pushState(null, null, window.location.href);  
+    this.location.onPopState(() => {
+      history.pushState(null, null, window.location.href);
+    });  */
+  }
 
   minutes: number;
   seconds: number;

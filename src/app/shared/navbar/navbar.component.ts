@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit{
     private nativeElement: Node;
     private toggleButton;
     private sidebarVisible: boolean;
-
+    public hideNavbar = false;
     public isCollapsed = true;
     @ViewChild("navbar-cmp", {static: false}) button;
 
@@ -23,6 +23,7 @@ export class NavbarComponent implements OnInit{
         this.location = location;
         this.nativeElement = element.nativeElement;
         this.sidebarVisible = false;
+        
     }
 
     ngOnInit(){
@@ -32,7 +33,10 @@ export class NavbarComponent implements OnInit{
         this.router.events.subscribe((event) => {
           this.sidebarClose();
        });
+       
     }
+
+
     getTitle(){
       var titlee = this.location.prepareExternalUrl(this.location.path());
       if(titlee.charAt(0) === '#'){
