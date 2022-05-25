@@ -13,15 +13,16 @@
 
             <div action="#" id="esp">
               <p for="lang" class="especializacion">Seleccione la especialización en la que desea enfocarse:</p> <br>
-              <select name="languages" id="especialidad">
+              <select name="languages" id="especialidad" (change)="generateEpayButton()">
+                <option selected>Seleccione una especialidad</option>
                 <ng-container *ngFor="let especialidad of especializaciones">
                   <option>{{ especialidad.IdEspecialidad }}. {{ especialidad.Nombre }}</option>
                 </ng-container>
               </select>
             </div>
             <br>
-            <div style="display: flex; align-items: center; justify-content: center">
-                <a (click)="goToPago()" class="btn btn-primary" role="button" aria-disabled="true">Pagar</a>
+            <div id="epay" style="display: flex; align-items: center; justify-content: center">
+                <!--<a (click)="goToPago()" class="btn btn-primary" role="button" aria-disabled="true">Pagar</a>-->
             </div>
               
           </div>
