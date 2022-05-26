@@ -20,10 +20,10 @@ export class FormularioComponent implements OnInit{
   public nombreExamen;
   constructor(private location: LocationStrategy, private router : Router, private _route: ActivatedRoute, private formularioSvc: FormularioService) {
     // Deshabilitar botan atras
-    /*history.pushState(null, null, window.location.href);  
+    history.pushState(null, null, window.location.href);  
     this.location.onPopState(() => {
       history.pushState(null, null, window.location.href);
-    });  */
+    });  
   }
 
   minutes: number;
