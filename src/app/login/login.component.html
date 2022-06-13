@@ -22,6 +22,7 @@
     <div class="container">
         <form class="form-body" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
             <h3 id="title">Iniciar Sesión</h3>
+            <h4 *ngIf="login != False">Correo o contraseña inválida. Por favor intente de nuevo.</h4>
             <div id="user-data" formGroupName="userData">
             <div class="form-group">
                 <label for="email">Correo</label>

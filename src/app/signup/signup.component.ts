@@ -51,7 +51,7 @@ export class SignupComponent implements OnInit {
         data => {
           console.log(data);
           if (data['Signup'] == "True"){
-            this.router.navigate(['/dashboard']);
+            this.router.navigate(['/dashboard', data['ID']]);
           }
           else{
             this.router.navigate(['/signup']);

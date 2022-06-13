@@ -11,10 +11,12 @@ import { LoginService } from './login.service';
 export class LoginComponent implements OnInit {
 
   signupForm: FormGroup;
-
+  message: string;
+  login: any;
   constructor(private router : Router, private loginSvc: LoginService) { }
 
   ngOnInit(): void {
+    this.login = null;
     this.signupForm = new FormGroup({
       'userData': new FormGroup({
         'psw': new FormControl(null, [Validators.required]),
@@ -46,10 +48,12 @@ export class LoginComponent implements OnInit {
     this.loginSvc.loginUser(newUser).subscribe(
       data => {
         console.log(data);
+        this.login = data['Login'];
         if (data['Login'] == "True"){
           this.router.navigate(['/dashboard', data['ID']]);
         }
-        else{
+        else if (data['Login'] == "False"){
+          this.message = "Usuario no encontrado";
           this.router.navigate(['/login']);
         }
         this.signupForm.reset();

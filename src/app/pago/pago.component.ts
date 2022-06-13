@@ -45,14 +45,21 @@ export class PagoComponent implements OnInit {
       console.log("get");
       console.log(data);
        this.transactionResponse = data.data
-       
-       this.popup_activated = true;
-       if (!localStorage.getItem('foo')) { 
+       if (this.transactionResponse["x_respuesta"] == "Rechazada" || this.transactionResponse["x_respuesta"] == "Fallida"){
+        this.router.navigate(['/menu', this.route.snapshot.paramMap.get('id')]);
+       }
+       else{
+        this.popup_activated = true;
+       }
+      if (!localStorage.getItem('foo')) { 
         localStorage.setItem('foo', 'no reload') 
         window.location.reload() 
-      } else {
+      } 
+      else {
         localStorage.removeItem('foo') 
       }
+       
+       
    })
 
     
