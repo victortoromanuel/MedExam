@@ -29,6 +29,7 @@ import { PaginatePipe } from './pipe/paginate.pipe';
 import {MatPaginatorIntl, MatPaginatorModule} from '@angular/material/paginator';
 import { CustomMatPaginatorIntl } from "./paginator-es";
 import { AdminLayoutRoutes } from "./layouts/admin-layout/admin-layout.routing";
+import { AterrizajeComponent } from "./aterrizaje/aterrizaje.component";
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { AdminLayoutRoutes } from "./layouts/admin-layout/admin-layout.routing";
     FormularioComponent,
     PagoComponent,
     AnswersComponent,
+    AterrizajeComponent,
     PaginatePipe,
     
   ],

@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { AterrizajeComponent } from './aterrizaje/aterrizaje.component';
 import { ForgotpswComponent } from './forgotpsw/forgotpsw.component';
 import { HomeComponent } from './home/home.component';
 
@@ -25,6 +26,11 @@ export const AppRoutes: Routes = [
   {
     path: 'forgotpsw',
     component: ForgotpswComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'aterrizaje',
+    component: AterrizajeComponent,
     pathMatch: 'full'
   },
   {
