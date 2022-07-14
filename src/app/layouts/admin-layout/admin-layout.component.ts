@@ -13,7 +13,7 @@ export class AdminLayoutComponent implements OnInit {
   constructor(location:Location, private router : Router) {
     router.events.subscribe((routerEvent) => {
       if (routerEvent instanceof NavigationEnd) {
-          console.log('current route gonorrea:', routerEvent.url);
+          console.log('current route:', routerEvent.url);
           var titlee = routerEvent.url.toString().split('/');
           if (titlee[1] == "formulario"){
             this.hideNavbar = true;
