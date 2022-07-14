@@ -10,7 +10,7 @@ export class GratisService {
   urlAPI: string = 'http://127.0.0.1:8000/api/formulario/';
   constructor(private http: HttpClient) { }
 
-  getPreguntas(tipoExamen: ExamenI):Observable<ExamenI>{
-    return this.http.post<ExamenI>(this.urlAPI, tipoExamen);
+  getPreguntas(tipoExamen: any):Observable<any>{
+    return this.http.post<any>(this.urlAPI, tipoExamen);
   }
 }

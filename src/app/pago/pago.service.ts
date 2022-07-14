@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ExamenI } from '../models/Examen/Examen.Interface';
+//import { ExamenI } from '../models/Examen/Examen.Interface';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
@@ -12,8 +12,8 @@ export class PagoService {
   //urlResponse: string = 'https:'
   constructor(private http: HttpClient) { }
 
-  getPreguntas(tipoExamen: ExamenI):Observable<ExamenI>{
-    return this.http.post<ExamenI>(this.urlAPI, tipoExamen);
+  getPreguntas(tipoExamen: any):Observable<any>{
+    return this.http.post<any>(this.urlAPI, tipoExamen);
   }
 
   getTransactionResponse(refPago: string):Observable<any>{

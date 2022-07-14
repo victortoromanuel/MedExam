@@ -12,12 +12,12 @@ export class FormularioService {
   urlRespuestaAPI: string = 'http://127.0.0.1:8000/api/respuesta/';
   constructor(private http: HttpClient) { }
 
-  getPreguntas(tipoExamen: ExamenI):Observable<ExamenI>{
-    return this.http.post<ExamenI>(this.urlAPI, tipoExamen);
+  getPreguntas(tipoExamen: any):Observable<any>{
+    return this.http.post<any>(this.urlAPI, tipoExamen);
   }
 
-  sendRespuesta(respuesta: RespuestaI):Observable<RespuestaI>{
-    return this.http.post<RespuestaI>(this.urlRespuestaAPI, respuesta);
+  sendRespuesta(respuesta: any):Observable<any>{
+    return this.http.post<any>(this.urlRespuestaAPI, respuesta);
   }
 }
 

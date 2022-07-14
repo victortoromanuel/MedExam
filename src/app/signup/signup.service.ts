@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { UsuarioI } from '../models/Usuario/Usuario.interface';
+//import { UsuarioI } from '../models/Usuario/Usuario.interface';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
@@ -13,7 +13,7 @@ export class SignupService {
     return this.http.get<UsuarioI>(this.urlAPI)
   }*/
 
-  signUpUser(user: UsuarioI):Observable<UsuarioI>{
-    return this.http.post<UsuarioI>(this.urlAPI, user);
+  signUpUser(user: any):Observable<any>{
+    return this.http.post<any>(this.urlAPI, user);
   }
 }
