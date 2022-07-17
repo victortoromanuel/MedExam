@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class PagoService {
-  urlAPI: string = 'http://127.0.0.1:8000/api/formulario/';
+  urlAPI: string = 'http://134.122.125.243:8000/api/formulario/';
   urlEpayco: string = 'https://secure.epayco.co/validation/v1/reference/';
   //urlResponse: string = 'https:'
   constructor(private http: HttpClient) { }

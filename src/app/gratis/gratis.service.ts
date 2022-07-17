@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ExamenI } from '../models/Examen/Examen.Interface';
+//import { ExamenI } from '../models/Examen/Examen.Interface';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class GratisService {
-  urlAPI: string = 'http://127.0.0.1:8000/api/formulario/';
+  urlAPI: string = 'http://134.122.125.243:8000/api/formulario/';
   constructor(private http: HttpClient) { }
 
   getPreguntas(tipoExamen: any):Observable<any>{

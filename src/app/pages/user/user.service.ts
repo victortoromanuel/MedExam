@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  urlAPI: string = 'http://127.0.0.1:8000/api/user/';
+  urlAPI: string = 'http://134.122.125.243:8000/api/user/';
   constructor(private http: HttpClient) { }
 
   updateUser(user: any):Observable<any>{

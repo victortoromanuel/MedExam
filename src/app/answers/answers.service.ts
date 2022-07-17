@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AnswersService {
-  urlRespuestaAPI: string = 'http://127.0.0.1:8000/api/respuesta/';
+  //urlRespuestaAPI: string = 'http://127.0.0.1:8000/api/respuesta/';
+  urlRespuestaAPI: string = 'http://134.122.125.243:8000/api/respuesta/';
   constructor(private http: HttpClient) { }
 
   getRespuestas(respuesta: RespuestaI):Observable<RespuestaI>{

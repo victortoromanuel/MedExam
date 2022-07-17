@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class EspecializacionService {
 
-  urlAPI: string = 'http://127.0.0.1:8000/api/especializacion/';
+  urlAPI: string = 'http://134.122.125.243:8000/api/especializacion/';
   constructor(private http: HttpClient) { }
   
   getEspecializaciones():Observable<any>{

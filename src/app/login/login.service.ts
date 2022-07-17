@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class LoginService {
-  urlAPI: string = 'http://127.0.0.1:8000/api/login/';
+  urlAPI: string = 'http://134.122.125.243:8000/api/login/';
   constructor(private http: HttpClient) { }
 
   loginUser(user: any):Observable<any>{

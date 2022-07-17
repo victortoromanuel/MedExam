@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class DashboardService {
   private data;
 
-  urlAPI: string = 'http://127.0.0.1:8000/api/dashboard/';
+  urlAPI: string = 'http://134.122.125.243:8000/api/dashboard/';
   constructor(private http: HttpClient) { }
   
   getDataToDashboard(data: any):Observable<any>{
