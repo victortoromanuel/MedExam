@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class EspecializacionService {
 
-  urlAPI: string = 'http://134.122.125.243:8000/api/especializacion/';
+  urlAPI: string = 'https://www.medexambackend.tk/api/especializacion/';
   constructor(private http: HttpClient) { }
   
   getEspecializaciones():Observable<any>{

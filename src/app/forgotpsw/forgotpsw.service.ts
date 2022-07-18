@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ForgotpswService {
-  urlAPI: string = 'http://134.122.125.243:8000/api/forgotpsw/';
+  urlAPI: string = 'https://www.medexambackend.tk/api/forgotpsw/';
   constructor(private http: HttpClient) { }
 
   sendEmail(user: any):Observable<any>{

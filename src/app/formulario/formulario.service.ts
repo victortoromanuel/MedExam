@@ -8,8 +8,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class FormularioService {
-  urlAPI: string = 'http://134.122.125.243:8000/api/formulario/';
-  urlRespuestaAPI: string = 'http://134.122.125.243:8000/api/respuesta/';
+  urlAPI: string = 'https://www.medexambackend.tk/api/formulario/';
+  urlRespuestaAPI: string = 'https://www.medexambackend.tk/api/respuesta/';
   constructor(private http: HttpClient) { }
 
   getPreguntas(tipoExamen: any):Observable<any>{

@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class DashboardService {
   private data;
 
-  urlAPI: string = 'http://134.122.125.243:8000/api/dashboard/';
+  urlAPI: string = 'https://www.medexambackend.tk/api/dashboard/';
   constructor(private http: HttpClient) { }
   
   getDataToDashboard(data: any):Observable<any>{

@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class TableService {
 
-  urlAPI: string = 'http://134.122.125.243:8000/api/table/';
+  urlAPI: string = 'https://www.medexambackend.tk/api/table/';
   constructor(private http: HttpClient) { }
 
   getInfoTableUser(user: any):Observable<any>{

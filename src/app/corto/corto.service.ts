@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CortoService {
 
-  urlAPI: string = 'http://134.122.125.243:8000/api/formulario/';
+  urlAPI: string = 'https://www.medexambackend.tk/api/formulario/';
   urlEpayco: string = 'https://secure.epayco.co/validation/v1/reference/faecbb4b832c7b42739d4cb8';
   constructor(private http: HttpClient) { }
 
