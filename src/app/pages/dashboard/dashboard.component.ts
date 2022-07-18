@@ -38,7 +38,7 @@ export class DashboardComponent implements OnInit{
                 this.dPastel = data['Pastel'];
                 this.promedioAcrTot = ((this.pAcertadas/this.pTotal)*100).toFixed(2);
                 if (this.examenesTomados == 0){
-                  this.promedioAcrTot = 0;
+                  this.promedioAcrTot = 0.00;
                 }
                 console.log(data);
                 

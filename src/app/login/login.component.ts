@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
         console.log(data);
         this.login = data['Login'];
         if (data['Login'] == "True"){
-          this.router.navigate(['/dashboard', data['ID']]);
+          this.router.navigate(['/menu', data['ID']]);
         }
         else if (data['Login'] == "False"){
           this.message = "Usuario no encontrado";
