@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class SignupService {
-  urlAPI: string = '134.122.125.243/api/signup/';
+  urlAPI: string = 'http://134.122.125.243/api/signup/';
   constructor(private http: HttpClient) { }
   /*getUser():Observable<UsuarioI>{
     return this.http.get<UsuarioI>(this.urlAPI)
