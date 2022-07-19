@@ -57,6 +57,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/login']);
         }
         this.signupForm.reset();
+        this.login = null;
     });
   }
 }
