@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   constructor(private router : Router, private loginSvc: LoginService) { }
 
   ngOnInit(): void {
-    this.login = null;
+    //this.login = null;
     this.signupForm = new FormGroup({
       'userData': new FormGroup({
         'psw': new FormControl(null, [Validators.required]),
@@ -48,16 +48,17 @@ export class LoginComponent implements OnInit {
     this.loginSvc.loginUser(newUser).subscribe(
       data => {
         console.log(data);
-        this.login = data['Login'];
+        
         if (data['Login'] == "True"){
           this.router.navigate(['/menu', data['ID']]);
         }
         else if (data['Login'] == "False"){
+          this.login = "False";
           this.message = "Usuario no encontrado";
           this.router.navigate(['/login']);
         }
         this.signupForm.reset();
-        this.login = null;
+        //this.login = null;
     });
   }
 }
