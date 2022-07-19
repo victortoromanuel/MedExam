@@ -27,6 +27,7 @@
             <div class="form-group">
                 <label for="email">Correo o usuario</label>
                 <input type="text" id="email" class="form-control" formControlName="email">
+                <span *ngIf="!signupForm.get('userData.email').valid && signupForm.get('userData.email').touched" class="help-block">Por favor ingrese un correo o usuario válido</span>
             </div>
 
             <div class="form-group">
